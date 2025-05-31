@@ -50,7 +50,7 @@ export default function ProfileSection() {
             {socialLinks.map((item, index) => (
               <Button key={index} variant="ghost" className="bg-primary/10" size="icon" asChild>
                 <a href={item.href} target="_blank" rel="noopener noreferrer">
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className="size-4" />
                 </a>
               </Button>
             ))}

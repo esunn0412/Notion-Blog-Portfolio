@@ -1,15 +1,17 @@
-export interface NotionTag {
+export interface TagFilterItem {
   id: string;
   name: string;
   count: number; // Optional count for tag usage
 }
 
-export interface NotionPost {
+export interface Post {
   id: string;
   title: string;
   description?: string;
   coverImage?: string;
-  tags?: NotionTag[];
+  tags?: string[];
   author?: string;
   date?: string;
+  modifiedDate?: string;
+  slug: string;
 }

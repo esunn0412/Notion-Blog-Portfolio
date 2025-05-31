@@ -6,10 +6,10 @@ import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { Calendar, User } from 'lucide-react';
 import Image from 'next/image';
-import { NotionPost, NotionTag } from '@/types/notion';
+import { Post } from '@/types/blog';
 
 interface PostCardProps {
-  post: NotionPost;
+  post: Post;
 }
 
 export function PostCard({ post }: PostCardProps) {
@@ -30,13 +30,13 @@ export function PostCard({ post }: PostCardProps) {
       )}
       <CardContent className="p-6">
         <div className="mb-4 flex flex-wrap gap-2">
-          {post.tags?.map((tag: NotionTag) => (
+          {post.tags?.map((tag) => (
             <Badge
-              key={tag.id}
+              key={tag}
               variant="secondary"
               className="bg-primary/10 text-primary hover:bg-primary/20 font-medium transition-colors"
             >
-              {tag.name}
+              {tag}
             </Badge>
           ))}
         </div>
@@ -51,13 +51,13 @@ export function PostCard({ post }: PostCardProps) {
         <div className="text-muted-foreground mt-6 flex items-center gap-x-4 text-sm">
           {post.author && (
             <div className="flex items-center gap-1.5">
-              <User className="h-4 w-4" />
+              <User className="size-4" />
               <span>{post.author}</span>
             </div>
           )}
           {post.date && (
             <div className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="size-4" />
               <time>{format(new Date(post.date), 'PPP', { locale: ko })}</time>
             </div>
           )}

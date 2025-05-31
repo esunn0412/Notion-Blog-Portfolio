@@ -32,7 +32,7 @@ export default function AboutLayout({ children }: AboutLayoutProps) {
                   rel: 'noopener noreferrer',
                 })}
               >
-                <item.icon className="h-4 w-4" />
+                <item.icon className="size-4" />
                 <span>{item.label}</span>
               </Link>
             ))}

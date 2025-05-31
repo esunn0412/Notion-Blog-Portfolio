@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import createMDX from '@next/mdx';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -7,8 +8,22 @@ const nextConfig: NextConfig = {
       {
         hostname: 'picsum.photos',
       },
+      {
+        hostname: 'www.notion.so',
+      },
+      {
+        hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com',
+      },
+      {
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx', 'md'],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add your MDX options here
+});
+
+export default withMDX(nextConfig);
