@@ -1,70 +1,94 @@
 import {
-  Card,
-  CardHeader,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { PostCard } from '@/components/features/blog/PostCard';
+import Link from 'next/link';
+import TagSection from '@/app/_components/TagSection';
+import ProfileSection from '@/app/_components/ProfileSection';
+import ContactSection from '@/app/_components/ContactSection';
+
+const mockTags = [
+  { id: 'all', name: '전체', count: 20 },
+  { id: 'html', name: 'HTML', count: 10 },
+  { id: 'css', name: 'CSS', count: 5 },
+  { id: 'javascript', name: 'JavaScript', count: 3 },
+  { id: 'react', name: 'React', count: 3 },
+  { id: 'nextjs', name: 'Next.js', count: 3 },
+];
+
+const mockPosts = [
+  {
+    id: '1',
+    title: 'Next.js 13으로 블로그 만들기',
+    description: 'Next.js 13과 Notion API를 활용하여 개인 블로그를 만드는 방법을 알아봅니다.',
+    coverImage: 'https://picsum.photos/800/400',
+    tags: [
+      { id: '1', name: 'Next.js', count: 1 },
+      { id: '2', name: 'React', count: 1 },
+    ],
+    authors: '짐코딩',
+    date: '2024-02-01',
+  },
+  {
+    id: '2',
+    title: 'TypeScript 기초 다지기',
+    description: 'TypeScript의 기본 문법과 실전에서 자주 사용되는 패턴들을 살펴봅니다.',
+    coverImage: 'https://picsum.photos/800/401',
+    tags: [
+      { id: '3', name: 'TypeScript', count: 1 },
+      { id: '4', name: 'JavaScript', count: 1 },
+    ],
+    authors: '짐코딩',
+    date: '2024-01-15',
+  },
+];
 
 export default function Home() {
   return (
     // min-h-screen assures minimum screen height,
-    <div className="flex min-h-screen flex-col">
-      {/* header area */}
-      <header className="sticky top-0 z-50 border-b">
-        <div className="container mx-auto flex h-14 items-center px-4">
-          <a href="#" className="front-semibold text-xl">
-            <span className="font-bold">Taeeun&apos;s Blog</span>
-          </a>
-          <nav className="ml-auto flex items-center gap-4">
-            <a href="#" className="hover:text-primary font-medium">
-              Home
-            </a>
-            <a href="#" className="hover:text-primary font-medium">
-              Blog
-            </a>
-            <a href="#" className="hover:text-primary font-medium">
-              About
-            </a>
-          </nav>
-        </div>
-      </header>
+    <div className="container py-8">
+      <div className="grid grid-cols-[200px_1fr_220px] gap-6">
+        {/* left sidebar */}
+        <TagSection tags={mockTags} />
 
-      {/* main area */}
-      <main className="flex-1">
-        <div className="container mx-auto px-4 py-8">
-          <div className="space-y-8">
-            {/* section title */}
+        {/* main area */}
+        <div className="space-y-8">
+          {/* section title and sort box */}
+          <div className="flex items-center justify-between">
             <h2 className="text-3xl font-bold tracking-tight">Blog List</h2>
+            <Select defaultValue="latest">
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="select sort" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="latest">latest</SelectItem>
+                <SelectItem value="oldest">oldest</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-            {/* Blog Card Grid */}
-            <div className="space-y-4">
-              {/* Blog card repeats */}
-              {[1, 2, 3].map((i) => {
-                return (
-                  <Card key={i}>
-                    <CardHeader>
-                      <CardTitle>블로그 제목 {i}</CardTitle>
-                      <CardDescription>
-                        간단한 더미 블로그 설명입니다. 여러 줄의 텍스트가 있을
-                        수 있습니다.{" "}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                );
-              })}
-            </div>
+          {/* Blog Card Grid */}
+          <div className="grid gap-4">
+            {/* Blog card repeats */}
+            {mockPosts.map((post) => (
+              <Link href={`/blog/${post.id}`} key={post.id}>
+                <PostCard key={post.id} post={post} />
+              </Link>
+            ))}
           </div>
         </div>
-      </main>
 
-      {/* Footer area */}
-      <footer className="border-t">
-        <div className="container mx-auto flex h-14 items-center justify-center">
-          <p className="text-muted-foreground text-sm">
-            Built with Next.js, Tailwind CSS and shadcn/ui by Taeeun Kim
-          </p>
-        </div>
-      </footer>
+        {/* right sidebar */}
+        <aside className="flex flex-col gap-6">
+          <ProfileSection />
+
+          <ContactSection />
+        </aside>
+      </div>
     </div>
   );
 }
