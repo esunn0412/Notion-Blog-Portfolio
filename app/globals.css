@@ -1,7 +1,13 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@plugin '@tailwindcss/typography';
+
 @custom-variant dark (&:is(.dark *));
+
+.prose code:not(pre code) {
+  @apply bg-muted text-primary rounded px-1.5 py-0.5 text-sm;
+}
 
 @theme inline {
   --color-background: var(--background);

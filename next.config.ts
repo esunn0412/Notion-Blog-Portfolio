@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   // Add your MDX options here
+  options: {
+    // @ts-expect-error remark-gfm type clashes
+    remarkPlugins: [['remark-gfm']],
+  },
 });
 
 export default withMDX(nextConfig);
