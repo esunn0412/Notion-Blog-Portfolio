@@ -117,22 +117,22 @@ export const getTags = async (): Promise<TagFilterItem[]> => {
   return [allTag, ...sortedTags];
 };
 
-interface GetPublishedPostsParams {
+export interface GetPublishedPostsParams {
   tag?: string;
   sort?: string;
   pageSize?: number;
   startCursor?: string;
 }
 
-interface GetPublishedPostsResponse {
+export interface GetPublishedPostsResponse {
   posts: Post[];
   hasMore: boolean;
   nextCursor: string | null;
 }
 
 export const getPublishedPosts = async ({
-  tag,
-  sort,
+  tag = 'all',
+  sort = 'latest',
   pageSize = 2,
   startCursor,
 }: GetPublishedPostsParams): Promise<GetPublishedPostsResponse> => {
