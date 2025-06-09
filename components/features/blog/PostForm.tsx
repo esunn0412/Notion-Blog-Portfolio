@@ -6,11 +6,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Loader2 } from 'lucide-react';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { createPostAction } from '@/app/actions/blog';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useQueryClient } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 
 export function PostForm() {
+  const queryClient = useQueryClient();
+  const router = useRouter();
   const [state, formAction, isPending] = useActionState(createPostAction, {
     message: '',
     errors: {},
@@ -20,6 +24,14 @@ export function PostForm() {
       content: '',
     },
   });
+
+  useEffect(() => {
+    if (state?.success) {
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+      router.push('/');
+    }
+  }, [state?.success, queryClient, router]);
+
   return (
     <form action={formAction}>
       <Card className="mx-auto max-w-2xl">

@@ -1,5 +1,7 @@
 'use server';
 import { createPost } from '@/lib/notion';
+import { revalidateTag } from 'next/cache';
+// import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const postSchema = z.object({
@@ -16,6 +18,7 @@ export interface PostFormState {
     content?: string[];
   };
   formData?: PostFormData;
+  success?: boolean;
 }
 
 export interface PostFormData {
@@ -51,7 +54,9 @@ export async function createPostAction(prevState: PostFormState, formData: FormD
     const { title, tag, content } = validatedFields.data;
 
     await createPost({ title, tag, content });
+    revalidateTag('posts');
     return {
+      success: true,
       message: 'Post created successfully',
     };
   } catch (e) {
@@ -60,4 +65,5 @@ export async function createPostAction(prevState: PostFormState, formData: FormD
       formData: rawFormData,
     };
   }
+  // redirect('/');
 }
