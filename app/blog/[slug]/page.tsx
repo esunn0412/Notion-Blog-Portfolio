@@ -54,9 +54,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
   });
 
   return (
-    <div className="container py-12">
-      <div className="grid grid-cols-[240_1fr_240px] gap-8">
-        <aside>{/* add content later */}</aside>
+    <div className="container py-6 md:py-8 lg:py-12">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[240_1fr_240px] md:gap-8">
+        <aside className="hidden md:block">{/* add content later */}</aside>
         <section>
           {/* 블로그 헤더 */}
           <div className="space-y-4">
@@ -64,7 +64,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
               <div className="flex gap-2">
                 {post.tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
               </div>
-              <h1 className="text-4xl font-bold">{post.title}</h1>
+              <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
             </div>
 
             {/* 메타 정보 */}
@@ -81,6 +81,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
 
           <Separator className="my-8" />
+          {/* mobile 목차 */}
+          <div className="sticky top-[var(--sticky-top)] mb-6 md:hidden">
+            <details className="bg-muted/60 rounded-lg p-4 backdrop-blur-sm">
+              <summary className="cursor-pointer text-lg font-semibold"> 목차</summary>
+              <nav className="mt-3 space-y-3 text-sm">
+                {data?.toc?.map((item) => <TableOfContentsLink key={item.id} item={item} />)}
+              </nav>
+            </details>
+          </div>
 
           {/* 블로그 본문 */}
           <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--header-height)]">
@@ -102,7 +111,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <GiscusComments />
         </section>
 
-        <aside className="relative">
+        <aside className="relative hidden md:block">
           <div className="sticky top-[var(--sticky-top))]">
             <div className="bg-muted/50 space-y-4 rounded-lg p-6 backdrop-blur-sm">
               <h3 className="text-lg font-semibold">목차</h3>
