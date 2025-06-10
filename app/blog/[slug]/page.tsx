@@ -14,6 +14,44 @@ import withToc from '@stefanprobst/rehype-extract-toc';
 import withTocExport from '@stefanprobst/rehype-extract-toc/mdx';
 import GiscusComments from '@/components/GiscusComments';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const { post } = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post does not exist.',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description || `${post.title} - Taeeun blog`,
+    keywords: post.tags,
+    authors: [{ name: post.author || 'Taeeun Kim' }],
+    publisher: 'Taeeun Kim',
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description || 'A blog post on Taeeun Kim’s blog.',
+      url: `blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      modifiedTime: post.modifiedDate,
+      authors: post.author || 'Taeeun Kim',
+      tags: post.tags,
+    },
+  };
+}
 
 interface TocEntry {
   value: string;

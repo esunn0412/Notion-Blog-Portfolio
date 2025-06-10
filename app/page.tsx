@@ -8,10 +8,20 @@ import TagSectionClient from '@/app/_components/TagSection.client';
 import TagSectionSkeleton from './_components/TagSectionSkeleton';
 import PostListSkeleton from '@/components/features/blog/PostListSkeleton';
 import { getPublishedPosts } from '@/lib/notion';
+import { Metadata } from 'next';
 
 interface HomeProps {
   searchParams: Promise<{ tag?: string; sort?: string }>;
 }
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    "Taeeun Kim's personal blog sharing insights on web development, AI, and technology.",
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default async function Home({ searchParams }: HomeProps) {
   const { tag, sort } = await searchParams;
