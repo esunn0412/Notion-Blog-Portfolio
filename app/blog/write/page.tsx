@@ -1,8 +1,10 @@
-import { PostForm } from '@/components/features/blog/PostForm';
+// import { PostForm } from '@/components/features/blog/PostForm';
+import { redirect } from 'next/navigation';
 export default function WritePage() {
-  return (
-    <div className="container py-10">
-      <PostForm />
-    </div>
-  );
+  redirect('/');
+  // return (
+  //   <div className="container py-10">
+  //     <PostForm />
+  //   </div>
+  // );
 }
