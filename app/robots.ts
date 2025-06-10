@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://notion-blog-six-lyart.vercel.app/sitemap.xml',
+    sitemap: `https://${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
   };
 }

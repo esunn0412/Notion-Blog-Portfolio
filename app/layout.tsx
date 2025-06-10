@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     telephone: false,
     address: false,
   },
-  metadataBase: new URL('https://notion-blog-six-lyart.vercel.app/'),
+  metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_SITE_URL}/`),
   alternates: {
     canonical: '/',
   },

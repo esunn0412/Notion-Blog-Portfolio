@@ -3,7 +3,7 @@ import { getPublishedPosts } from '@/lib/notion';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 기본 URL
-  const baseUrl = 'https://notion-blog-six-lyart.vercel.app';
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}/`;
 
   // 정적 페이지 목록
   const staticPages = [
