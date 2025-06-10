@@ -26,7 +26,7 @@ export default function ProfileSection() {
   return (
     <Card>
       <CardContent className="pt-6">
-        <div className="space-y-4">
+        <div className="space-y-4 caret-transparent">
           <div className="flex justify-center">
             <div className="bg-muted rounded-full p-2">
               <div className="h-36 w-36 overflow-hidden rounded-full">

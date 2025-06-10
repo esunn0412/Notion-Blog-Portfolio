@@ -36,7 +36,7 @@ const contactItems = [
 
 export default function TagSection() {
   return (
-    <Card>
+    <Card className="caret-transparent">
       <CardHeader>
         <CardTitle>문의하기</CardTitle>
       </CardHeader>
