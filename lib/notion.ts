@@ -53,7 +53,9 @@ function getPostMetadata(page: PageObjectResponse): Post {
   };
 }
 
-export const getPostBySlug = async (slug: string): Promise<{ markdown: string; post: Post }> => {
+export const getPostBySlug = async (
+  slug: string
+): Promise<{ markdown: string; post: Post | null }> => {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
@@ -73,6 +75,13 @@ export const getPostBySlug = async (slug: string): Promise<{ markdown: string; p
       ],
     },
   });
+
+  if (!response.results[0]) {
+    return {
+      markdown: '',
+      post: null,
+    };
+  }
 
   const mdblocks = await n2m.pageToMarkdown(response.results[0].id);
   const { parent } = n2m.toMarkdownString(mdblocks);
