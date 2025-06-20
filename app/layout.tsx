@@ -17,8 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Taeeun Website',
     default: 'Taeeun Website',
   },
-  description:
-    "Taeeun Kim's personal website sharing insights on web development, AI, and technology.",
+  description: "Taeeun Kim's personal portfolio website. Click to learn about me!",
   keywords: [
     'Next.js',
     'frontend',
@@ -39,6 +38,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_SITE_URL}/`),
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: "Taeeun Kim's Website",
+    description: "Taeeun Kim's personal portfolio website. Click to learn about me!",
+    url: '/',
+    type: 'website',
+    siteName: 'Taeeun Kim',
+    images: [
+      {
+        url: '/thumbnail.png',
+        width: 1200,
+        height: 630,
+        alt: "Taeeun Kim's Website",
+      },
+    ],
   },
   other: {
     google: 'notranslate',

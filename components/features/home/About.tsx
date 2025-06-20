@@ -45,7 +45,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative flex scroll-mt-[var(--sticky-top)] flex-col items-center justify-center tracking-wide md:h-[var(--no-header-height)] md:flex-row"
+      className="relative flex scroll-mt-[var(--sticky-top)] flex-col items-center justify-center tracking-wide caret-transparent md:h-[var(--no-header-height)] md:flex-row"
     >
       <div className="mb-12 flex flex-1 flex-col items-center space-y-4 md:mb-40 md:items-start">
         <h1 className="m-0 mb-2 text-7xl">Taeeun Kim</h1>
@@ -58,19 +58,36 @@ const About = () => {
       <p className="mb-40 max-w-xl flex-1 text-[var(--description)]">
         I&apos;m a student developer and AI researcher who firmly believes that even the most
         advanced AI is meaningless without a platform or application that brings it to life for real
-        users. I strive to bridge that gap, leveraging AI to build experiences that has tangible
+        users. I strive to bridge that gap, leveraging AI to build experiences that have tangible
         impact on the general public.
         <br />
         <br />
         I&apos;m currently a rising junior at Emory University, studying Mathematics and Computer
-        Science. As Co-Hackathon Director and Project Lead at Project Emory, I organized
-        Emory&apos;s first-ever CS Hackathon with an amazing team and led a student team to build a
-        website for a local business. Now, as Vice President of Project Emory, I’m focused on
-        building a community of curious, driven, and collaborative students, to support and
-        encourage everyone on their journey.
+        Science. As Co-Hackathon Director and Project Lead at{' '}
+        <a
+          href="https://www.linkedin.com/company/project-emory"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--highlight)] underline-offset-2 hover:underline"
+        >
+          Project Emory
+        </a>
+        , I organized{' '}
+        <a
+          href="https://www.linkedin.com/posts/project-emory_emoryhacks2025-hackathon-techinnovation-activity-7311186895395332096-R-uR/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--highlight)] underline-offset-2 hover:underline"
+        >
+          Emory&apos;s first-ever CS Hackathon
+        </a>{' '}
+        with an amazing team and led a student team to build a website for a local business. Now, as
+        Vice President of Project Emory, I’m focused on building a community of curious, driven, and
+        collaborative students, to support and encourage everyone on their journey.
         <br />
-        <br /> In my free time, I enjoy kickboxing, singing and playing guitar, cafe hopping for a
-        good cup of latte, crying to great movies, or eating good food with good people.
+        <br />
+        In my free time, I enjoy kickboxing, singing and playing guitar, cafe hopping for a good cup
+        of latte, crying to great movies, or eating good food with good people.
       </p>
 
       <div className="absolute bottom-20 left-0 container mx-auto w-full">

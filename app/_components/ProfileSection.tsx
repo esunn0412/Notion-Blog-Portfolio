@@ -29,7 +29,7 @@ export default function ProfileSection() {
       <CardContent className="pt-6">
         <div className="space-y-4 caret-transparent">
           <div className="flex justify-center">
-            <div className="bg-muted rounded-full p-2">
+            <div className="bg-primary/10 rounded-full p-2">
               <div className="h-36 w-36 overflow-hidden rounded-full">
                 <Image
                   src="/images/tk.png"
@@ -57,7 +57,7 @@ export default function ProfileSection() {
             ))}
           </div>
 
-          <p className="bg-primary/10 rounded p-2 text-center text-sm">2학년 학생 개발자</p>
+          {/* <p className="bg-primary/10 rounded p-2 text-center text-sm">Student Developer</p> */}
         </div>
       </CardContent>
     </Card>
