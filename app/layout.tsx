@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Taeeun Blog',
-    default: 'Taeeun Blog',
+    template: '%s | Taeeun Website',
+    default: 'Taeeun Website',
   },
   description:
-    "Taeeun Kim's personal blog sharing insights on web development, AI, and technology.",
+    "Taeeun Kim's personal website sharing insights on web development, AI, and technology.",
   keywords: [
     'Next.js',
     'frontend',
