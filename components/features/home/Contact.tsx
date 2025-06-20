@@ -1,61 +1,68 @@
-import { Briefcase, MessageSquare } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import ContactData from '@/data/ContactData';
+import { ContactType } from '@/types';
 
-const contactItems = [
-  {
-    icon: Briefcase,
-    title: 'Opportunities',
-    description: 'For jobs, internships, or freelance roles.',
-    mailto: {
-      email: 'taeeunk1208@gmail.com',
-      subject: '[Opportunity]',
-      body: 'Position or Opportunity Type:\nCompany / Organization:\nDetails / Responsibilities:\nTimeline or Duration:',
-    },
-  },
-  {
-    icon: MessageSquare,
-    title: 'Inquiries',
-    description: 'For mentoring, study groups, events, or general questions.',
-    mailto: {
-      email: 'taeeunk1208@gmail.com',
-      subject: '[General Inquiry]',
-      body: 'Topic or Question:\nContext / Background:\nPreferred Timeline:\nOther Notes:',
-    },
-  },
-];
+// Unified contact item component
+const ContactItem = ({ item, index }: { item: ContactType; index: number }) => {
+  const Icon = item.icon;
+
+  const getHref = () => {
+    if (item.type === 'email' && item.mailto) {
+      return `mailto:${item.mailto.email}?subject=${encodeURIComponent(
+        item.mailto.subject
+      )}&body=${encodeURIComponent(item.mailto.body)}`;
+    }
+    return item.href;
+  };
+
+  const linkProps = item.type === 'social' ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
+  return (
+    <a
+      key={index}
+      href={getHref()}
+      {...linkProps}
+      className="group border-border flex flex-col gap-2 rounded-lg border p-4 transition-all hover:border-[var(--highlight)]/80"
+    >
+      <div className="text-primary flex items-center gap-2 group-hover:text-[var(--highlight)]/80">
+        <Icon className="size-4" />
+        <h3 className="font-medium">{item.title}</h3>
+      </div>
+      <p className="text-muted-foreground text-xs">{item.description}</p>
+    </a>
+  );
+};
 
 export default function Contact() {
+  const emails = ContactData.filter((item) => item.type === 'email');
+  const socials = ContactData.filter((item) => item.type === 'social');
+
+  const ContactGrid = ({ items }: { items: ContactType[] }) => (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {items.map((item, index) => (
+        <ContactItem key={index} item={item} index={index} />
+      ))}
+    </div>
+  );
+
   return (
     <section
       id="contact"
       className="container mx-auto max-w-2xl scroll-mt-[var(--header-height)] py-20"
     >
-      <Card className="bg-background caret-transparent shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl tracking-tight">Contact Me!</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            {contactItems.map((item, index) => (
-              <a
-                key={index}
-                href={`mailto:${item.mailto.email}?subject=${encodeURIComponent(
-                  item.mailto.subject
-                )}&body=${encodeURIComponent(item.mailto.body)}`}
-                className="group bg-primary/5 hover:bg-muted flex items-start gap-4 rounded-lg p-3 transition-colors"
-              >
-                <div className="bg-primary/20 text-primary flex shrink-0 items-center justify-center rounded-md p-1.5">
-                  <item.icon className="size-4" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.description}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <h2 className="mb-8 text-2xl tracking-tight">Contact Me</h2>
+      <div className="space-y-8">
+        {/* Email Contacts */}
+        <div className="space-y-4">
+          <h4 className="text-muted-foreground text-sm font-semibold">Email</h4>
+          <ContactGrid items={emails} />
+        </div>
+
+        {/* Social Media */}
+        <div className="space-y-4">
+          <h4 className="text-muted-foreground text-sm font-semibold">Social Media</h4>
+          <ContactGrid items={socials} />
+        </div>
+      </div>
     </section>
   );
 }

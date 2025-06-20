@@ -3,8 +3,9 @@ import { Skeleton } from '@/components/ui/skeleton';
 export default function Loading() {
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-[200px_1fr_220px] gap-6">
-        {/* 좌측 사이드바 스켈레톤 */}
+      {/* Desktop grid layout */}
+      <div className="hidden grid-cols-[200px_1fr_220px] gap-6 md:grid">
+        {/* Left sidebar */}
         <aside className="space-y-4">
           <Skeleton className="h-10 w-full" />
           <div className="space-y-2">
@@ -14,15 +15,15 @@ export default function Loading() {
           </div>
         </aside>
 
-        {/* 메인 컨텐츠 스켈레톤 */}
+        {/* Main content */}
         <div className="space-y-8">
-          {/* 헤더 섹션 스켈레톤 */}
+          {/* Header */}
           <div className="flex items-center justify-between">
             <Skeleton className="h-10 w-32" />
             <Skeleton className="h-10 w-32" />
           </div>
 
-          {/* 블로그 포스트 그리드 스켈레톤 */}
+          {/* Blog posts */}
           <div className="grid grid-cols-1 gap-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="flex flex-col space-y-3">
@@ -41,9 +42,9 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* 우측 사이드바 스켈레톤 */}
+        {/* Right sidebar */}
         <aside className="space-y-6">
-          {/* 프로필 섹션 스켈레톤 */}
+          {/* Profile card */}
           <div className="space-y-4 rounded-lg border p-4">
             <div className="flex flex-col items-center gap-4">
               <Skeleton className="h-24 w-24 rounded-full" />
@@ -57,7 +58,7 @@ export default function Loading() {
             </div>
           </div>
 
-          {/* 연락처 섹션 스켈레톤 */}
+          {/* Contact list */}
           <div className="space-y-4 rounded-lg border p-4">
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="flex items-center gap-2">
@@ -67,6 +68,19 @@ export default function Loading() {
             ))}
           </div>
         </aside>
+      </div>
+
+      {/* Mobile profile card (visible on < md) */}
+      <div className="flex flex-col items-center space-y-6 md:hidden">
+        <Skeleton className="h-24 w-24 rounded-full" />
+        <Skeleton className="h-6 w-32" />
+        <Skeleton className="h-4 w-48" />
+        <div className="flex gap-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-8 w-8 rounded-md" />
+          ))}
+        </div>
+        <Skeleton className="h-10 w-56 rounded-md" />
       </div>
     </div>
   );

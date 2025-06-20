@@ -9,11 +9,11 @@ import Contact from '@/components/features/home/Contact';
 import { User, Briefcase, Building, Coffee } from 'lucide-react';
 
 const menuItems = [
-  { icon: User, label: '프로필', href: '#about' },
+  { icon: User, label: 'Profile', href: '#about' },
   // { icon: Code2, label: '기술 스택', href: '#skills' },
-  { icon: Building, label: '경험', href: '#experience' },
-  { icon: Briefcase, label: '프로젝트', href: '#projects' },
-  { icon: Coffee, label: '컨택', href: '#contact' },
+  { icon: Building, label: 'Experience', href: '#experience' },
+  { icon: Briefcase, label: 'Projects', href: '#projects' },
+  { icon: Coffee, label: 'Contact', href: '#contact' },
 ];
 
 export const metadata: Metadata = {
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="container">
-      <div className="flex gap-8 py-8">
+      <div className="flex gap-8 py-6">
         {/* 사이드바 */}
-        <aside className="shrink-0">
-          <nav className="sticky top-[var(--sticky-top)] space-y-1 rounded-lg p-4">
+        <aside className="hidden shrink-0 lg:block">
+          <nav className="sticky top-[120px] space-y-1 border-l-1 border-l-[var(--highlight)]/50 p-2">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-muted-foreground hover:bg-accent hover:text-accent-foreground flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors"
+                className="text-foreground/80 flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors hover:text-[var(--highlight)]"
               >
                 <item.icon className="size-4" />
                 <span>{item.label}</span>

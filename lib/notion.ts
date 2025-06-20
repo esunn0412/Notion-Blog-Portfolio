@@ -147,6 +147,8 @@ export const getPublishedPosts = unstable_cache(
     pageSize = 2,
     startCursor,
   }: GetPublishedPostsParams): Promise<GetPublishedPostsResponse> => {
+    // delay a little on purpose
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
     const response = await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID!,
       filter: {

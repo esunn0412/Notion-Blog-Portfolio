@@ -9,8 +9,9 @@ const Experience = () => {
       <div className="space-y-12">
         {ExperienceData.map((exp, index) => (
           <div key={`exp-${index}`} className="group m-0 flex flex-col gap-6 md:flex-row">
-            <div className="relative flex flex-col items-center">
-              <div className="z-10 flex size-6 items-center justify-center rounded-full bg-[var(--primary)] transition-all duration-200 group-hover:bg-[var(--highlight)]">
+            {/* Vertical Line and Dot */}
+            <div className="relative hidden flex-col items-center md:flex">
+              <div className="dark:bg-primary z-10 flex size-6 items-center justify-center rounded-full bg-[var(--highlight)]/30 transition-all duration-200 group-hover:bg-[var(--highlight)]">
                 <div className="h-3 w-3 rounded-full bg-[var(--background)]"></div>
               </div>
               {index !== ExperienceData.length - 1 && (
@@ -18,7 +19,8 @@ const Experience = () => {
               )}
             </div>
 
-            <div className="flex flex-row pb-12">
+            {/* Experience Details */}
+            <div className="flex flex-col pb-12 md:flex-row">
               <div className="flex-1">
                 <h3 className="text-[var(--description)]">{exp.period}</h3>
               </div>

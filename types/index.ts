@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons';
+
 export interface SocialLink {
   platform: string;
   url: string;
@@ -21,4 +23,17 @@ export interface ProjectType {
   technologies: string[];
   url?: string;
   github?: string;
+}
+
+export interface ContactType {
+  type: 'email' | 'social';
+  icon: IconType;
+  title: string;
+  description: string;
+  mailto?: {
+    email: string;
+    subject: string;
+    body: string;
+  };
+  href?: string;
 }

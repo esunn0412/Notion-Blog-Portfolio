@@ -45,9 +45,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative flex h-[var(--no-header-height)] scroll-mt-[var(--sticky-top)] flex-row items-center justify-center tracking-wide"
+      className="relative flex scroll-mt-[var(--sticky-top)] flex-col items-center justify-center tracking-wide md:h-[var(--no-header-height)] md:flex-row"
     >
-      <div className="mb-32 flex-1 space-y-4">
+      <div className="mb-12 flex flex-1 flex-col items-center space-y-4 md:mb-40 md:items-start">
         <h1 className="m-0 mb-2 text-7xl">Taeeun Kim</h1>
         <p className="text-md pl-2 text-[var(--description)]">
           Atlanta, United States | Seoul, Korea
@@ -55,7 +55,7 @@ const About = () => {
         <Tagline />
       </div>
 
-      <p className="mb-32 max-w-xl flex-1 text-[var(--description)]">
+      <p className="mb-40 max-w-xl flex-1 text-[var(--description)]">
         I&apos;m a student developer and AI researcher who firmly believes that even the most
         advanced AI is meaningless without a platform or application that brings it to life for real
         users. I strive to bridge that gap, leveraging AI to build experiences that has tangible
@@ -73,8 +73,8 @@ const About = () => {
         good cup of latte, crying to great movies, or eating good food with good people.
       </p>
 
-      <div className="absolute bottom-12 left-0 container mx-auto">
-        <div className="flex gap-4 pt-4">
+      <div className="absolute bottom-20 left-0 container mx-auto w-full">
+        <div className="flex w-full justify-center gap-6 pt-4 md:justify-start md:gap-4">
           {links.map((link) => {
             const Icon = iconMap[link.icon.toLowerCase()];
 
@@ -87,7 +87,7 @@ const About = () => {
                 aria-label={link.platform}
               >
                 {Icon && (
-                  <Icon className="size-6 transition-transform duration-200 hover:scale-110 hover:text-[var(--description)]" />
+                  <Icon className="size-8 transition-transform duration-200 hover:scale-110 hover:text-[var(--description)] md:size-6" />
                 )}
               </a>
             );
