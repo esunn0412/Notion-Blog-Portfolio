@@ -1,6 +1,6 @@
 import PostListSuspense from '@/components/features/blog/PostListSuspense';
 import ProfileSection from '@/app/_components/ProfileSection';
-import ContactSection from '@/app/_components/ContactSection';
+// import ContactSection from '@/app/_components/ContactSection';
 import { getTags } from '@/lib/notion';
 import HeaderSection from '@/app/_components/HeaderSection';
 import { Suspense } from 'react';
@@ -33,7 +33,7 @@ export default async function Blog({ searchParams }: BlogProps) {
     <div className="container py-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[200px_1fr_220px]">
         {/* 좌측 사이드바 */}
-        <aside className="order-2 md:order-none">
+        <aside className="order-2 shrink-0 md:order-none">
           <Suspense fallback={<TagSectionSkeleton />}>
             <TagSectionClient tags={tags} selectedTag={selectedTag} />
           </Suspense>
@@ -50,7 +50,7 @@ export default async function Blog({ searchParams }: BlogProps) {
         {/* 우측 사이드바 */}
         <aside className="order-1 flex flex-col gap-6 md:order-none">
           <ProfileSection />
-          <ContactSection />
+          {/* <ContactSection /> */}
         </aside>
       </div>
     </div>

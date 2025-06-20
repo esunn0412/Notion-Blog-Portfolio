@@ -1,15 +1,16 @@
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Linkedin, Github, FileText, Instagram } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const socialLinks = [
   {
-    icon: Linkedin,
+    icon: FaLinkedin,
     href: 'https://www.linkedin.com/in/taeeunnkim/',
   },
   {
-    icon: Github,
+    icon: FaGithub,
     href: 'https://github.com/esunn0412',
   },
   {
@@ -17,14 +18,14 @@ const socialLinks = [
     href: '/resume.pdf',
   },
   {
-    icon: Instagram,
+    icon: FaInstagram,
     href: 'https://www.instagram.com/taeeun.k__/',
   },
 ];
 
 export default function ProfileSection() {
   return (
-    <Card>
+    <Card className="bg-background sticky top-[var(--sticky-top)] caret-transparent shadow-lg">
       <CardContent className="pt-6">
         <div className="space-y-4 caret-transparent">
           <div className="flex justify-center">

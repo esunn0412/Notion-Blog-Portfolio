@@ -106,14 +106,18 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   return (
     <div className="container py-6 md:py-8 lg:py-12">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-[240_1fr_240px] md:gap-8">
-        <aside className="hidden md:block">{/* add content later */}</aside>
-        <section>
+      <div className="flex gap-4 md:gap-8">
+        {/* <aside className="hidden md:block">add content later</aside> */}
+        <section className="flex-1 space-y-8">
           {/* 블로그 헤더 */}
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex gap-2">
-                {post.tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
+                {post.tags?.map((tag) => (
+                  <Badge key={tag} className="bg-[var(--highlight)]">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
               <h1 className="text-3xl font-bold md:text-4xl">{post.title}</h1>
             </div>
@@ -131,7 +135,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             </div>
           </div>
 
-          <Separator className="my-8" />
+          <Separator className="my-12" />
           {/* mobile 목차 */}
           <div className="sticky top-[var(--sticky-top)] mb-6 md:hidden">
             <details className="bg-muted/60 rounded-lg p-4 backdrop-blur-sm">
@@ -143,8 +147,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
 
           {/* 블로그 본문 */}
-          <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--header-height)]">
-            {/* Render markdown content here */}
+
+          <div className="prose prose-slate dark:prose-invert prose-headings:scroll-mt-[var(--header-height)] w-full max-w-3xl">
             <MDXRemote
               source={markdown}
               options={{
