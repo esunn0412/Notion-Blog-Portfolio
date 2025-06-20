@@ -37,7 +37,7 @@ export default function Contact() {
   const socials = ContactData.filter((item) => item.type === 'social');
 
   const ContactGrid = ({ items }: { items: ContactType[] }) => (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4">
       {items.map((item, index) => (
         <ContactItem key={index} item={item} index={index} />
       ))}
