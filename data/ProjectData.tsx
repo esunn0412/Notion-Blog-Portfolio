@@ -2,6 +2,23 @@ import type { ProjectType } from '@/types';
 
 const ProjectData: ProjectType[] = [
   {
+    title: 'Personal Portfolio with Notion Blog',
+    description:
+      'A modern developer blog powered by Notion and Next.js App Router, featuring MDX rendering, tag filtering, dynamic SEO, personalized publishing workflow, and optimized performance.',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'Notion API',
+      'MDX',
+      'Giscus',
+    ],
+    image: '/images/notion.png',
+    url: `https://${process.env.NEXT_PUBLIC_SITE_URL}/`,
+    github: 'https://github.com/esunn0412/notion-blog',
+  },
+  {
     title: 'WOW Centreville',
     description:
       'Full-stack ordering platform for local business, streamlining order management and online payment.',
