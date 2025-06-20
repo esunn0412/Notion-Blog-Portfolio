@@ -5,6 +5,7 @@ import Link from 'next/link';
 import About from '@/components/features/home/About';
 import Experience from '@/components/features/home/Experience';
 import Projects from '@/components/features/home/Projects';
+import Contact from '@/components/features/home/Contact';
 import { User, Briefcase, Building, Coffee } from 'lucide-react';
 
 const menuItems = [
@@ -55,6 +56,8 @@ export default function Home() {
           <Projects />
 
           <Divider />
+
+          <Contact />
         </main>
         <MouseAnimation />
       </div>
