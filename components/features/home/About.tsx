@@ -48,7 +48,7 @@ const About = () => {
       className="relative flex scroll-mt-[var(--sticky-top)] flex-col items-center justify-center tracking-wide caret-transparent md:h-[var(--no-header-height)] md:flex-row"
     >
       <div className="mb-12 flex flex-1 flex-col items-center space-y-4 md:mb-40 md:items-start">
-        <h1 className="m-0 mb-2 text-7xl">Taeeun Kim</h1>
+        <h1 className="m-0 mb-2 text-7xl tracking-wide">Taeeun Kim</h1>
         <p className="text-md pl-2 text-[var(--description)]">
           Atlanta, United States | Seoul, Korea
         </p>
