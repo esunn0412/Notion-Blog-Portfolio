@@ -1,6 +1,6 @@
 # Notion Blog Portfolio
 
-A modern personal portfolio and blog website powered by Notion CMS and built with Next.js. Features a dynamic blog system, responsive design, and optimized performance.
+My personal portfolio and blog website powered by Notion CMS and built with Next.js. Features a dynamic blog system, responsive design, and optimized performance.
 
 ## Features
 
