@@ -10,7 +10,7 @@ export interface ExperienceType {
   title: string;
   company: string;
   period: string;
-  description: string;
+  description: string[];
   technologies: string[];
   url: string;
   links?: { name: string; url: string }[];

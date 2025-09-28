@@ -11,7 +11,7 @@ const Experience = () => {
           <div key={`exp-${index}`} className="group m-0 flex flex-col gap-6 md:flex-row">
             {/* Vertical Line and Dot */}
             <div className="relative hidden flex-col items-center md:flex">
-              <div className="dark:bg-primary z-10 flex size-6 items-center justify-center rounded-full bg-[var(--highlight)]/30 transition-all duration-200 group-hover:bg-[var(--highlight)]">
+              <div className="dark:bg-primary z-10 flex size-6 items-center justify-center rounded-full bg-[var(--highlight)]/30 transition-all duration-200 group-hover:bg-[var(--highlight)]!">
                 <div className="h-3 w-3 rounded-full bg-[var(--background)]"></div>
               </div>
               {index !== ExperienceData.length - 1 && (
@@ -29,7 +29,13 @@ const Experience = () => {
                   <h3 className="white text-xl font-semibold transition-all duration-200 group-hover:text-[var(--highlight)]">
                     {exp.title} • {exp.company}
                   </h3>
-                  <p className="mt-2 text-[var(--description)]">{exp.description}</p>
+                  <ul className="mt-2 text-sm text-[var(--description)]">
+                    {exp.description.map((bp, i) => (
+                      <li key={`exp-desc-${i}`} className="mb-2">
+                        {bp}
+                      </li>
+                    ))}
+                  </ul>
                 </a>
                 {exp.links && (
                   <div className="mt-4 flex flex-wrap gap-6">

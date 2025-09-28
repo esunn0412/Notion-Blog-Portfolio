@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function MouseAnimation() {
   useEffect(() => {
     // Create cursor element
-    const cursor = document.createElement('div');
+    const cursor = document.createElement('div'); // TODO: useRef and pass in the div for tailwind styles. use state for position
     cursor.className = 'cursor-blur';
     document.body.appendChild(cursor);
 
