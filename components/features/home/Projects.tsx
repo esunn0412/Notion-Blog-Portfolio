@@ -12,15 +12,15 @@ const Projects = () => {
         {ProjectData.map((project, index) => (
           <div
             key={`proj-${index}`}
-            className="group m-0 flex flex-col gap-6 rounded-lg border border-transparent px-4 py-8 transition-all duration-300 md:flex-row"
+            className="group m-0 flex flex-col gap-6 rounded-lg border border-transparent px-4 py-8 transition-all duration-300"
           >
-            <div className="w-full flex-shrink-0 md:w-80">
+            <div className="flex h-110 flex-shrink-0 items-center overflow-hidden rounded-lg">
               <Image
                 src={project.image}
                 alt={`${project.title} project screenshot`}
                 width={400}
                 height={300}
-                className="object-fit h-auto w-full rounded-lg transition-all duration-300 group-hover:scale-105"
+                className="h-full w-full rounded-lg object-cover transition-all duration-300 group-hover:scale-105"
               />
             </div>
 
