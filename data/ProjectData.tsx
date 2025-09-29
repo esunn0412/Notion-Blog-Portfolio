@@ -6,7 +6,7 @@ const ProjectData: ProjectType[] = [
     description:
       'A highly concurrent automated local file organizer and processor as Go backend, using the Actor Model with goroutines and channels, Gemini Go SDK, and mutex-protected caching with JSON-backed models for persistence. Expanded with Next.js, React, TypeScript frontend to display organized course materials, up-to-date quizzes and study guides, and interactive knowledge graphs across courses.',
     technologies: ['Go', 'Gemini Go SDK', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-    image: '/images/curaitor.jpeg',
+    image: '/images/curaitor.png',
     url: `https://devpost.com/software/curaitor-7epmv2`,
     github: 'https://github.com/esunn0412/curaitor/tree/main',
   },
