@@ -4,7 +4,7 @@ const ExperienceData: ExperienceType[] = [
   {
     title: 'Undergraduate Researcher',
     company: 'MAIX Lab',
-    period: 'Jan, 2025 - May, 2025',
+    period: 'May, 2025 - Present',
     description: [
       'Advanced multimodal ECG representation learning by integrating concept-based dictionaries into clinical report text embeddings, improving signal–report cross modal alignment accuracy by 9% over MERL approach.',
       'Applied FAISS for scalable disease concept retrieval, reducing retrieval latency by 65% over lexical methods.',
@@ -22,7 +22,7 @@ const ExperienceData: ExperienceType[] = [
   {
     title: 'Research Intern',
     company: 'Lablup',
-    period: 'Jan, 2025 - May, 2025',
+    period: 'Jun, 2025 - Aug, 2025',
     description: [
       'Conducted GPU benchmark analysis within the Backend.AI’s VM ecosystem on vLLM, eliminating network latency variables, verifying performance consistency, and documenting the analysis in the internal Knowledge Base. Implemented per-request token throughput variance metrics in the internal benchmarking script.',
       'Created an auto-benchmarking pipeline for the research team via FastTrack, a batch job workflow management service.',
@@ -33,7 +33,7 @@ const ExperienceData: ExperienceType[] = [
   {
     title: 'Software Development Intern',
     company: 'Lablup',
-    period: 'Jan, 2025 - May, 2025',
+    period: 'Jun, 2025 - Aug, 2025',
     description: [
       'Contributed to Backend.AI FastTrack, a batch job workflow management service, by implementing multi-selection and bulk deletion for pipeline jobs.Improved UI/UX of FastTrack with features such as a ReactFlow quick delete for node edges, along with dockerized local workflows and collaborative code reviews.',
       'Developed and deployed PyCon 2025 booth event page, supporting 228 participants across 1,193 submissions.',
